@@ -1,0 +1,9 @@
+#+TITILE: My lily58 Configurations
+
+* TODO Normal Layout
+* TODO Lower Layout
+* TODO Riser Layout
+* TODO Other changes planed  [/]
+- [ ] [[https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_space_cadet][Space Cadet Shift - QMK]]
+- [ ] Encorders: Haven't figured out which keys to assign
+- [ ] [[https://docs.qmk.fm/#/feature_oled_driver][OLED driver]]: Maybe?
