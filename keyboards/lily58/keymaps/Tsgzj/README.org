@@ -12,7 +12,7 @@ The refined layout for the keyboard is listed below
     3 2 e 1 | 2 3 4 5
 
 Left:
-1 -> Space
+1 -> Enter
 2 -> Riser
 3 -> Mod (Super)
 4 -> Esc
@@ -21,8 +21,8 @@ Left:
 7 -> Alt
 
 Right:
-1 -> ; // the =;= is used commonly enough in programming and deserves a standalone key
-2 -> Enter
+1 -> ??
+2 -> Space
 3 -> Shift
 4 -> Lower
 5 -> Mod (Super) ?
@@ -52,4 +52,3 @@ Initially I thought the making the left/right shift as open/close parenthesis bu
 - [ ] Tap Dancing:
 On the second thought tap dancing is more useful than the space cadet shift. Since I'm going to map the number keys on the lower layer, all the symbols can be mapped to the same key. With tap dancing, the usage of lower key + shift can be avoided.
 - [ ] Move shift key to thumb row with Sticky key
-Moved the shift key to the right side of thumb row to avoid interfering with =E=. Just noticed that I'm hitting the spacebar with left thumb on a normal keyboard while using my right thumb on a splitkeyboard, ineteresting.
