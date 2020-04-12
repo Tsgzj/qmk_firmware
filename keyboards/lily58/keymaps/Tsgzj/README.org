@@ -12,7 +12,7 @@ The refined layout for the keyboard is listed below
     3 2 e 1 | 2 3 4 5
 
 Left:
-1 -> Shift
+1 -> Space
 2 -> Riser
 3 -> Mod (Super)
 4 -> Esc
@@ -21,18 +21,29 @@ Left:
 7 -> Alt
 
 Right:
-1 -> ??
+1 -> ; // the =;= is used commonly enough in programming and deserves a standalone key
 2 -> Enter
-3 -> Space
+3 -> Shift
 4 -> Lower
 5 -> Mod (Super) ?
 6 -> ??
 7 -> ??
 8 -> ??
-9 -> Shift
+9 -> Alt
 #+end_src
 * TODO Lower Layout
-* TODO Riser Layout
+#+begin_src
+e         /               6
+f . 7 8 9 + |   \ _ = /   7
+g = 4 5 6 - |   { ( ) } l 8
+h 0 1 2 3 * | 1 < [ ] > - 9
+    d c b a | 2 3 4 5
+#+end_src
+
+* DONE Riser Layout
+  CLOSED: [2020-04-12 Sun 12:57]
+The riser layout is quite simple. I'm just mapping the up/down/left/right arrows to the =hjkl= keys on the normal QWERTY keyboard.
+
 * TODO Other optimizations  [1/5]
 - [X] [[https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_space_cadet][Space Cadet Shift - QMK]]
 Initially I thought the making the left/right shift as open/close parenthesis but shift keys are actually pretty far to reach and may be too much work on the pinky fingers. To me having them located somewhere convinient on lower layer is better.
@@ -41,3 +52,4 @@ Initially I thought the making the left/right shift as open/close parenthesis bu
 - [ ] Tap Dancing:
 On the second thought tap dancing is more useful than the space cadet shift. Since I'm going to map the number keys on the lower layer, all the symbols can be mapped to the same key. With tap dancing, the usage of lower key + shift can be avoided.
 - [ ] Move shift key to thumb row with Sticky key
+Moved the shift key to the right side of thumb row to avoid interfering with =E=. Just noticed that I'm hitting the spacebar with left thumb on a normal keyboard while using my right thumb on a splitkeyboard, ineteresting.
