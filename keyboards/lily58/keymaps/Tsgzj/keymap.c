@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                   `----------------------------'           '------''--------------------'
      */
 
-    [_QWERTY] = LAYOUT(KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_GRV, KC_TAB, KC_SLSH, KC_X, KC_B, KC_U, KC_F, KC_Y, KC_L, KC_C, KC_G, KC_Q, KC_LBRC, KC_LCTRL, KC_M, KC_H, KC_O, KC_A, KC_I, KC_R, KC_N, KC_T, KC_S, KC_D, KC_RBRC, KC_LALT, KC_QUOT, KC_SCLN, KC_V, KC_J, KC_COMM, KC_NO, KC_ENT, KC_DOT, KC_K, KC_W, KC_P, KC_Z, KC_RALT, KC_LGUI, LOWER, KC_E, KC_BSPC, KC_SPC, KC_RSHT, RAISE, KC_RGUI),
+    [_QWERTY] = LAYOUT(KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_GRV, KC_TAB, KC_SLSH, KC_X, KC_B, KC_U, KC_F, KC_Y, KC_L, KC_C, KC_G, KC_Q, KC_LBRC, KC_LCTRL, KC_M, KC_H, KC_O, KC_A, KC_I, KC_R, KC_N, KC_T, KC_S, KC_D, KC_RBRC, KC_LALT, KC_QUOT, KC_SCLN, KC_V, KC_J, KC_COMM, KC_NO, KC_ENT, KC_DOT, KC_K, KC_W, KC_P, KC_Z, KC_RALT, KC_LGUI, LOWER, KC_E, KC_BSPC, KC_SPC, KC_RSFT, RAISE, KC_RGUI),
     /* LOWER
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |      |  F1  |  F2  |  F3  |  F4  | F5   |                    |  F6  |  F7  | F8   |  F9  | F10  | F11  |
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                   |      |      |      |/       /         \      \ |      |      |      |
      *                   `----------------------------'           '------''--------------------'
      */
-    [_LOWER] = LAYOUT(_______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, ______, KC_DOT, KC_7, KC_8, KC_9, KC_PPLS, KC_BSLS, KC_MINS, KC_SLSH, KC_COMM, _______, KC_F12, ______, KC_EQL, KC_4, KC_5, KC_6, KC_PMNS, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, _______, KC_F13, _______, KC_0, KC_1, KC_2, KC_3, KC_PAST, _______, _______, KC_LABK, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_QUES, _______, _______, _______, _______, _______, _______, _______, _______),
+    [_LOWER] = LAYOUT(_______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, _______, KC_DOT, KC_7, KC_8, KC_9, KC_PPLS, KC_BSLS, KC_MINS, KC_SLSH, KC_COMM, _______, KC_F12, _______, KC_EQL, KC_4, KC_5, KC_6, KC_PMNS, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, _______, KC_F13, _______, KC_0, KC_1, KC_2, KC_3, KC_PAST, _______, _______, KC_LABK, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_QUES, _______, _______, _______, _______, _______, _______, _______, _______),
     /* RAISE
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
@@ -122,15 +122,16 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             if(clockwise) {
                 tap_code(KC_MNXT);
             } else {
-                tap_code(KC_MPRV)
+                tap_code(KC_MPRV);
             }
             break;
-        default 0:
+        default:
             if (clockwise) {
                 tap_code(KC_VOLU);
             } else {
                 tap_code(KC_VOLD);
             }
+        }
     }
 }
 
