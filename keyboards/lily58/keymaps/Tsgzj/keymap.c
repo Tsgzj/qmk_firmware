@@ -206,7 +206,7 @@ static const char PROGMEM code_to_name[0xFF] = {
 };
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (is_keyboard_master()) {
+    if (is_master) {
         return OLED_ROTATION_270;
     } else {
         return OLED_ROTATION_180;
@@ -266,13 +266,12 @@ void render_keylogger_status(void) {
 }
 
 void oled_task_user(void) {
-    if (is_keyboard_master()) {
+    if (is_master) {
         render_layer_status();
         render_mod_status(get_mods()|get_oneshot_mods());
         render_keylogger_status();
     } else {
         render_logo();  // Renders a static logo
-        oled_scroll_left();  // Turns on scrolling
     }
 }
 #endif
