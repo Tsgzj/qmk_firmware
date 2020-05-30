@@ -1,31 +1,46 @@
+# MCU name
+MCU = atmega32u4
+
+# Bootloader selection
+#   Teensy       halfkay
+#   Pro Micro    caterina
+#   Atmel DFU    atmel-dfu
+#   LUFA DFU     lufa-dfu
+#   QMK DFU      qmk-dfu
+#   ATmega32A    bootloadHID
+#   ATmega328P   USBasp
+BOOTLOADER = atmel-dfu
+
+# Do not put the microcontroller into power saving mode
+# when we get USB suspend event. We want it to keep updating
+# backlight effects.
+OPT_DEFS += -DNO_SUSPEND_POWER_DOWN
+
 # Build Options
 #   change to "no" to disable the options, or define them in the Makefile in
 #   the appropriate keymap folder that will get included automatically
 #
-BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration
+BOOTMAGIC_ENABLE = lite     # Virtual DIP switch configuration
 MOUSEKEY_ENABLE = no        # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
-NKRO_ENABLE = no            # Nkey Rollover - if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
+NKRO_ENABLE = yes           # Nkey Rollover - if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 MIDI_ENABLE = no            # MIDI controls
 AUDIO_ENABLE = no           # Audio output on port C6
 UNICODE_ENABLE = no         # Unicode
 BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
 RGBLIGHT_ENABLE = no        # Enable WS2812 RGB underlight.
-SWAP_HANDS_ENABLE = no      # Enable one-hand typing
-ENCODER_ENABLE = yes        # Enable encoder
+
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend
-OLED_DRIVER_ENABLE = yes
 
-# If you want to change the display of OLED, you need to change here
-# SRC +=  ./lib/glcdfont.c \
-#         ./lib/layer_state_reader.c \
-#         ./lib/logo_reader.c \
-#         ./lib/keylogger.c \
-#         ./lib/mode_icon_reader.c \
-#         # ./lib/rgb_state_reader.c \
-#         # ./lib/host_led_state_reader.c \
-#         # ./lib/timelogger.c \
+CIE1931_CURVE = yes
+
+# project specific files
+SRC =	keyboards/wilba_tech/wt_main.c \
+		keyboards/wilba_tech/wt_rgb_backlight.c \
+		quantum/color.c \
+		drivers/issi/is31fl3731.c \
+		drivers/avr/i2c_master.c
