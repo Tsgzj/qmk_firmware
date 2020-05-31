@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_LCTRL, KC_M, KC_H, KC_O, KC_A, KC_I,                   KC_R, KC_N, KC_T, KC_S, KC_D, KC_RBRC,
                      KC_LSFT, KC_QUOT, KC_SCLN, KC_V, KC_J, KC_COMM, KC_NO,    KC_GRV, KC_DOT, KC_K, KC_W, KC_P, KC_Z, EQ_SFT,
                      KC_LALT, KC_LGUI, KC_E, LT_LOW, LT_RAI, KC_SPC, FUNC, KC_RGUI),
-    /* LOWER
+    /* RAISE
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |      |  F1  |  F2  |  F3  |  F4  | F5   |                    |  F6  |  F7  | F8   |  F9  | F10  | F11  |
      * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, KC_EQL, KC_4, KC_5, KC_6, KC_PMNS,      KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, KC_PIPE, _______,
                       _______, KC_0, KC_1, KC_2, KC_3, KC_PAST, _______, KC_CAPS, KC_LABK, KC_LBRC, KC_RBRC, KC_RABK, KC_QUES, _______,
                       _______,_______, _______, _______, _______, _______, _______, _______),
-    /* RAISE
+    /* LOWER
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
      * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* FUNC
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |      |      |      |      |      |      |                    | MPRV | MPLY | MNXT |      |      |      |
-     * |------+------+------+------+------+------|                    |------+-----0-+------+------+------+------|
+     * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
      * |      |      |      |      |      |      |                    | HOME | PGUP | PGDN | END  |      |      |
      * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
      * |      |      |      |      |      |      |-------.    ,-------| Left | Down |  UP  | Right|      |      |
@@ -180,7 +180,7 @@ static const char PROGMEM code_to_name[0xFF] = {
 };
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (is_master) {
+    if (is_keyboard_master()) {
         return OLED_ROTATION_270;
     } else {
         return OLED_ROTATION_180;
@@ -249,7 +249,7 @@ void render_keylogger_status(void) {
 }
 
 void oled_task_user(void) {
-    if (is_master) {
+    if (is_keyboard_master()) {
         render_layer_status();
         render_mod_status(get_mods()|get_oneshot_mods());
         render_keylock_status(host_keyboard_leds());
