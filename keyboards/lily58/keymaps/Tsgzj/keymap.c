@@ -22,11 +22,18 @@ extern uint8_t is_master;
 #define _RAISE 2
 #define _FUNC 3
 
-enum custom_keycodes {
-  BASE = SAFE_RANGE,
-  LOWER,
-  RAISE,
-  FUNC
+enum custom_keycodes { BASE = SAFE_RANGE, LOWER, RAISE, FUNC };
+
+enum tap_dance_keycodes {
+    TD_GRV = 0,
+    TD_LBRC,
+    TD_RBRC,
+    TD_QUOT
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+    [TD_GRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
+    [TD_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_COLON)
 };
 
 #define LT_LOW LT(_LOWER, KC_BSPC)
@@ -53,27 +60,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(KC_ESC, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
                      KC_TAB, KC_SLSH, KC_X, KC_B, KC_U, KC_F,                  KC_Y, KC_L, KC_C, KC_G, KC_Q, KC_LBRC,
                      KC_LCTRL, KC_M, KC_H, KC_O, KC_A, KC_I,                   KC_R, KC_N, KC_T, KC_S, KC_D, KC_RBRC,
-                     KC_LSFT, KC_QUOT, KC_SCLN, KC_V, KC_J, KC_COMM, KC_NO,    KC_GRV, KC_DOT, KC_K, KC_W, KC_P, KC_Z, EQ_SFT,
+                     KC_LSFT, KC_QUOT, KC_SCLN, KC_V, KC_J, KC_COMM, KC_NO,    TD_GRV, KC_DOT, KC_K, KC_W, KC_P, KC_Z, EQ_SFT,
                      KC_LALT, KC_LGUI, KC_E, LT_LOW, LT_RAI, KC_SPC, FUNC, KC_RGUI),
     /* RAISE
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |      |  F1  |  F2  |  F3  |  F4  | F5   |                    |  F6  |  F7  | F8   |  F9  | F10  | F11  |
      * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-     * |      |  .>  |  7&  |  8*  |  9(  |  +   |                    |   _  |  /?  |  \|  |  ,<  |  .>  |  `~  |
+     * |      |  /?  |  7&  |  8*  |  9(  |  +   |                    |   `~ |   _  |  \|  |  ,<  |  .>  |  :   |
      * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
      * |      |  =+  |  4$  |  5%  |  6^  |  -   |-------.    ,-------|   {  |  (   |   )  |   }  |  |   |  ;:  |
      * |------+------+------+------+------+------|       |    | CAPS  |------+------+------+------+------+------|
-     * |      |  0)  |  1!  |  2@  |  3#  |  *   |-------|    |-------|   <  |  [   |   ]  |   >  |  ?   |      |
+     * |      |  .>  |  1!  |  2@  |  3#  |  *   |-------|    |-------|   <  |  [   |   ]  |   >  |  ?   |      |
      * `-----------------------------------------/       /     \      \-----------------------------------------'
-     *                   |      |      |      | /       /       \      \  |      |      |      |
+     *                   |      |      |  0   | /       /       \      \  |      |      |      |
      *                   |      |      |      |/       /         \      \ |      |      |      |
      *                   `----------------------------'           '------''--------------------'
      */
     [_RAISE] = LAYOUT(_______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,      KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11,
                       _______, KC_DOT, KC_7, KC_8, KC_9, KC_PLUS,      KC_UNDS, KC_SLSH, KC_BSLS, KC_COMM, KC_DOT, KC_GRV,
-                      _______, KC_EQL, KC_4, KC_5, KC_6, KC_MINS,      KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, KC_PIPE, KC_QUOT,
+                      _______, KC_EQL, KC_4, KC_5, KC_6, KC_MINS,      KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, KC_PIPE, TD_QUOT,
                       _______, KC_0, KC_1, KC_2, KC_3, KC_ASTR, _______, KC_CAPS, KC_LABK, KC_LBRC, KC_RBRC, KC_RABK, KC_QUES, _______,
-                      _______,_______, _______, _______, _______, _______, _______, _______),
+                      _______,_______, KC_0, _______, _______, _______, _______, _______),
     /* LOWER
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |      |      |      |      |      |      |                    |      |      |      |      |      |      |

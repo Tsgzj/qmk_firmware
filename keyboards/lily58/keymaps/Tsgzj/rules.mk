@@ -19,6 +19,7 @@ ENCODER_ENABLE = yes        # Enable encoder
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend
 OLED_DRIVER_ENABLE = yes
+TAP_DANCE_ENABLE = yes
 
 # If you want to change the display of OLED, you need to change here
 # SRC +=  ./lib/glcdfont.c \
