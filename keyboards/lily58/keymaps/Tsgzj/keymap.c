@@ -44,23 +44,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* QWERTY
      * ,-----------------------------------------.                    ,-----------------------------------------.
-     * |  `~  |  1!  |  2@  |  3#  |  4$  |  5%  |                    |  6^  |  7&  |  8*  |  9(  |  0)  |  \|  |
+     * |  `~  |  1!  |  2@  |  3#  |  4$  |  5%  |                    |  6^  |  7&  |  8*  |  9(  |  0)  |  =+  |
      * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-     * |  ESC |   Q  |   W  |   F  |   P  |   B  |                    |   J  |   L  |   U  |   Y  |  -_  |  +=  |
+     * |  ESC |  '"  |  ,<  |  .>  |   P  |   Y  |                    |   F  |   G  |   C  |   R  |  L   |  ?/  |
      * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-     * |  Tab |   A  |   R  |   S  |   T  |   G  |-------.    ,-------|   K  |   N  |   E  |   I  |   O  |  '"  |
-     * |------+------+------+------+------+------| NOOP  |    |   ;:  |------+------+------+------+------+------|
-     * |  [{  |   Z  |   X  |   C  |   D  |   V  |-------|    |-------|   M  |   H  |  ,<  |  .>  |  /?  |  ]}  |
+     * |  Tab |   A  |   O  |   E  |   U  |   I  |-------.    ,-------|   D  |   H  |   T  |   N  |  S   |  -_  |
+     * |------+------+------+------+------+------| NOOP  |    |   \|  |------+------+------+------+------+------|
+     * |  [{  |  ;:  |   Q  |   J  |   K  |   X  |-------|    |-------|   B  |   M  |   W  |   V  |  Z   |  ]}  |
      * `-----------------------------------------/       /     \      \-----------------------------------------'
      *                   | LALT | LGUI | SHFT | / LOWER /       \ RAISE\  | SPACE| CTRL | RGUI |
      *                   |      |      |      |/       /         \      \ |      |      |      |
      *                   `----------------------------'           '------''--------------------'
      */
 
-    [_BASE] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5,                   KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSLS,
-                     KC_ESC, KC_Q, KC_W, KC_F, KC_P, KC_B,                   KC_J, KC_L, KC_U, KC_Y, KC_MINS, KC_EQL,
-                     KC_TAB, KC_A, KC_R, KC_S, KC_T, KC_G,                   KC_K, KC_N, KC_E, KC_I, KC_O, TD_QUOT,
-                     BRC_LCTRL, KC_Z, KC_X, KC_C, KC_D, KC_V, KC_NO,         KC_SCLN, KC_M, KC_H, KC_COMM, KC_DOT, KC_SLSH, BRC_FUNC,
+    [_BASE] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5,                   KC_6, KC_7, KC_8, KC_9, KC_0, KC_EQL,
+                     KC_ESC, KC_COMM, KC_, KC_DOT, KC_P, KC_P,                   KC_F, KC_G, KC_C, KC_R, KC_L, KC_QUES,
+                     KC_TAB, KC_A, KC_O, KC_E, KC_U, KC_I,                   KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINS,
+                     BRC_LCTRL, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_NO,         KC_BSLS, KC_B, KC_M, KC_W, KC_V, KC_Z, BRC_FUNC,
                      KC_LALT, KC_LGUI, KC_LSFT, LT_LOW, LT_RAI, KC_SPC, KC_RCTL, KC_RGUI),
     /* RAISE
      * ,-----------------------------------------.                    ,-----------------------------------------.
